@@ -1,0 +1,39 @@
+body{
+	margin: 0;
+}
+
+#footer{
+	padding-top: 1%;
+	padding-left: 5%;
+    padding-bottom: 32px;
+    color: lightgray;
+    background: #383838;
+    font-family: Arial;
+    font-size: 100%;
+}
+
+#footer strong {
+	font-size: 105%;
+	color: white;
+}
+
+ul {
+	vertical-align: top;
+	display: inline-block;
+	list-style-type: none;
+}
+
+
+#footer a:visited { 
+	color: lightgray; 
+}
+
+#footer a:link { 
+	text-decoration: none; 
+	color: lightgray;
+}
+
+#footer a:hover {
+	background-color: #ddd;
+  	color: black;
+}

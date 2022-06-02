@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/topnav.css}" />
+</head>
+
+<body>
+	<div th:fragment="topnav">
+		<div class="topnav">
+			<a>Home</a>
+			<a>Collezioni</a>
+			<a>Magliette</a>
+			<a>Accessori</a>
+			<a style="float: right;">Login</a>
+			<a style="float: right;">Contattaci</a>
+		</div>
+		
+		<div class="toplogo">
+			<img th:src="@{/images/logo.jpg}" width="8%">
+		</div>
+	</div>
+</body>
+
+</html>

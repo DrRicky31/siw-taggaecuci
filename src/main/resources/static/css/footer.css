@@ -1,7 +1,3 @@
-body{
-	margin: 0;
-}
-
 #footer{
 	padding-top: 1%;
 	padding-left: 5%;
@@ -36,4 +32,10 @@ ul {
 #footer a:hover {
 	background-color: #ddd;
   	color: black;
+}
+
+#footer img {
+	float:right; 
+	border-radius: 10px; 
+	margin-right: 2%;
 }

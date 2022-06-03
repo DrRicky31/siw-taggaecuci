@@ -16,3 +16,19 @@ body {
     font-size: 65%;
   }
 }
+
+.slider {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 2%;
+}
+
+.info{
+	background-color: lightgray;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 2%;
+	font-size: 110%;
+	padding-left: 3%;
+	padding-right: 3%;
+}

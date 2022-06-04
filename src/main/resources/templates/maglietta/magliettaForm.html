@@ -20,9 +20,14 @@
 				<input class="input" type=text th:field="*{descrizione}" />
 			</div>
 			<div>
-				<strong>Colore: </strong>
+				<strong>Colori disponibili: </strong>
 				<input class="input" type=text th:field="*{colore}" />
 				<span th:if="${#fields.hasErrors('colore')}" th:errors="*{colore}"></span>
+			</div>
+			<div>
+				<strong>Prezzo: </strong>
+				<input class="input" type=text th:field="*{prezzo}" />
+				<span th:if="${#fields.hasErrors('prezzo')}" th:errors="*{prezzo}"></span>
 			</div>
 			<p>
 				<label><strong>Materiali: </strong>

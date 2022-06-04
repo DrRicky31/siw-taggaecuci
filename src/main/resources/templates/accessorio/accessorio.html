@@ -16,22 +16,23 @@
 		<h1>Dettagli accessorio:</h1>
 
 		<div id="dettagli">
+			<div>
+				<img th:src="@{'/images/' + ${accessorio.nome} +'.jpg'}" width="15%">
+			</div>
 			<div><strong>Nome: </strong>
 				<span th:text="${accessorio.nome}"></span>
 			</div>
 			<div><strong>Descrizione: </strong>
 				<span th:text="${accessorio.descrizione}"></span>
 			</div>
-			<div><strong>Tipo: </strong>
-				<span th:text="${accessorio.tipo}"></span>
+			<div><strong>Prezzo: </strong>
+				<span th:text="${accessorio.prezzo} + '€'"></span>
 			</div>
 			<div><strong>Materiali: </strong>
-				<span>
-					<ta th:each="mat : ${accessorio.materiali}">
-						<ta><a th:href="@{'/materiale' + '/' + ${mat.id}}">
-								<tb th:text="${mat.nome}" />,
-							</a></ta>
-					</ta>
+				<span th:each="mat : ${accessorio.materiali}">
+					<a th:href="@{'/materiale' + '/' + ${mat.id}}">
+						<span th:text="${mat.nome}" />,
+					</a>
 				</span>
 			</div>
 		</div>

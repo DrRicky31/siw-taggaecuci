@@ -43,6 +43,14 @@ body {
 	font-size: 120%;
 }
 
+.elenco td {
+	padding-right: 2%;
+}
+
+.elenco th, td {
+	border-bottom: 1px solid #ddd;
+}
+
 .elenco a:visited { 
 	color: #383838; 
 }

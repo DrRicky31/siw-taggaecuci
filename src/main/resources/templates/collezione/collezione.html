@@ -23,21 +23,19 @@
 				<span th:text="${collezione.stagione}"></span>
 			</div>
 			<div><strong>Magliette: </strong>
-				<span>
-					<ta th:each="mag : ${collezione.magliette}">
-						<ta><a th:href="@{'/maglietta' + '/' + ${mag.id}}">
-								<tb th:text="${mag.nome}" />,
-							</a></ta>
-					</ta>
-				</span>
+					<span th:each="mag : ${collezione.magliette}">
+						<a th:href="@{'/maglietta' + '/' + ${mag.id}}">
+							<span th:text="${mag.nome}" />,
+						</a>
+					</span>
 			</div>
 			<div><strong>Accessori: </strong>
 				<span>
-					<ta th:each="acc : ${collezione.accessori}">
-						<ta><a th:href="@{'/accessorio' + '/' + ${acc.id}}">
-								<tb th:text="${acc.nome}" />,
-							</a></ta>
-					</ta>
+					<span th:each="acc : ${collezione.accessori}">
+						<a th:href="@{'/accessorio' + '/' + ${acc.id}}">
+							<span th:text="${acc.nome}" />,
+						</a>
+					</span>
 				</span>
 			</div>
 		</div>

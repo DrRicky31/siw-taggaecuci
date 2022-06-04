@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -20,9 +21,10 @@ public class Accessorio {
 	private String nome;
 	
 	@NotBlank
-	private String tipo;
-	
 	private String descrizione;
+	
+	@Min(1)
+	private float prezzo;
 	
 	@ManyToMany
 	private List<Materiale> materiali;
@@ -46,12 +48,12 @@ public class Accessorio {
 		this.nome = nome;
 	}
 
-	public String getTipo() {
-		return tipo;
+	public float getPrezzo() {
+		return prezzo;
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setPrezzo(float prezzo) {
+		this.prezzo = prezzo;
 	}
 
 	public String getDescrizione() {

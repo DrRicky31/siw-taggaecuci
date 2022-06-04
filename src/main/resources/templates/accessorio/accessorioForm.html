@@ -18,11 +18,12 @@
 			<div>
 				<strong>Descrizione: </strong>
 				<input class="input" type=text th:field="*{descrizione}" />
+				<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
 			</div>
 			<div>
-				<strong>Tipo: </strong>
-				<input class="input" type=text th:field="*{tipo}" />
-				<span th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}"></span>
+				<strong>Prezzo: </strong>
+				<input class="input" type=text th:field="*{prezzo}" />
+				<span th:if="${#fields.hasErrors('prezzo')}" th:errors="*{prezzo}"></span>
 			</div>
 			<p>
 				<label><strong>Materiali: </strong>

@@ -55,6 +55,7 @@ public class AccessorioController {
 			return "/accessorio/accessorio.html";
 		}
 		else
+			model.addAttribute("materiali", materialeService.findAll());
 			return "/accessorio/accessorioForm.html";
 	}
 }

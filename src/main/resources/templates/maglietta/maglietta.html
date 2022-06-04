@@ -16,22 +16,26 @@
 		<h1>Dettagli materiale:</h1>
 
 		<div id="dettagli">
+			<span>
+				<img th:src="@{'/images/' + ${maglietta.nome} +'.jpg'}" width="15%">
+			</span>
 			<div><strong>Nome: </strong>
 				<span th:text="${maglietta.nome}"></span>
 			</div>
 			<div><strong>Descrizione: </strong>
 				<span th:text="${maglietta.descrizione}"></span>
 			</div>
-			<div><strong>Colore: </strong>
+			<div><strong>Colori disponibili: </strong>
 				<span th:text="${maglietta.colore}"></span>
 			</div>
+			<div><strong>Prezzo: </strong>
+				<span th:text="${maglietta.prezzo} + '€'"></span>
+			</div>
 			<div><strong>Materiali: </strong>
-				<span>
-					<ta th:each="mat : ${maglietta.materiali}">
-						<ta><a th:href="@{'/materiale' + '/' + ${mat.id}}">
-								<tb th:text="${mat.nome}" />,
-							</a></ta>
-					</ta>
+				<span th:each="mat : ${maglietta.materiali}">
+					<a th:href="@{'/materiale' + '/' + ${mat.id}}">
+						<span th:text="${mat.nome}" />,
+					</a>
 				</span>
 			</div>
 		</div>

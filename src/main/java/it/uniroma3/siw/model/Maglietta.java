@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -23,6 +24,9 @@ public class Maglietta {
 	
 	@NotBlank
 	private String colore;
+	
+	@Min(1)
+	private float prezzo;
 	
 	@ManyToMany
 	private List<Materiale> materiali;
@@ -46,6 +50,14 @@ public class Maglietta {
 		this.nome = nome;
 	}
 
+	public float getPrezzo() {
+		return prezzo;
+	}
+
+	public void setPrezzo(float prezzo) {
+		this.prezzo = prezzo;
+	}
+	
 	public String getDescrizione() {
 		return descrizione;
 	}

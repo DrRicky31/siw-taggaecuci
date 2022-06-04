@@ -18,26 +18,32 @@
 			
 		<table>
 			<colgroup>
-				<col style="width: 8%">
-				<col style="width: 8%">
-				<col style="width: 12%">
 				<col style="width: 10%">
-				<col style="width: 8%">
+				<col style="width: 10%">
+				<col style="width: 10%">
+				<col style="width: 10%">
+				<col style="width: 10%">
+				<col style="width: 10%">
+				<col style="width: 5%">
 			</colgroup>
 			<thead>
 				<tr>
+					<td></td>
 					<td><strong>Nome</strong></td>
-					<td><strong>Colore</strong></td>
+					<td><strong>Colori disponibili</strong></td>
 					<td><strong>Descrizione</strong></td>
+					<td><strong>Prezzo</strong></td>
 					<td><strong>Materiali</strong></td>
 					<td><strong>Collezioni</strong></td>
 				</tr>
 			</thead>	
 			</tbody>
 				<tr th:each="maglietta : ${maglietteList}">
+					<td><img th:src="@{'/images/' + ${maglietta.nome} +'.jpg'}" width="85%"></td>
 					<td th:text="${maglietta.nome}"/>
 					<td th:text="${maglietta.colore}"/>
 					<td th:text="${maglietta.descrizione}"/>
+					<td th:text="${maglietta.prezzo} + '€'"/>
 					<td>
 						<ta th:each="materiale : ${maglietta.materiali}">
 						<ta><a th:href="@{'/materiale' + '/' + ${materiale.id}}"><tb th:text="${materiale.nome}"/>, </a></ta>

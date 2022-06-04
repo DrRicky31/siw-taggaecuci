@@ -56,6 +56,7 @@ public class MagliettaController {
 			return "/maglietta/maglietta.html";
 		}
 		else
+			model.addAttribute("materiali", materialeService.findAll());
 			return "/maglietta/magliettaForm.html";
 	}
 }

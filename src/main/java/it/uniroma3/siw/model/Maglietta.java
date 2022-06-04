@@ -33,7 +33,21 @@ public class Maglietta {
 
 	@ManyToMany(mappedBy = "magliette")
 	private List<Collezione> collezioni;
+		
+	public Maglietta(@NotBlank String nome, String descrizione, @NotBlank String colore, @Min(1) float prezzo) {
+		super();
+		this.nome = nome;
+		this.descrizione = descrizione;
+		this.colore = colore;
+		this.prezzo = prezzo;
+	}
 	
+	
+	public Maglietta() {
+		super();
+	}
+
+
 	public Long getId() {
 		return id;
 	}

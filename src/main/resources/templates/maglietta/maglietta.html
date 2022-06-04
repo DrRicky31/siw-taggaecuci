@@ -13,11 +13,11 @@
 	<div th:replace="fragments/topnav.html :: topnav"></div>
 
 	<div class="elenco">
-		<h1>Dettagli materiale:</h1>
+		<h1>Dettagli maglietta:</h1>
 
 		<div id="dettagli">
 			<span>
-				<img th:src="@{'/images/' + ${maglietta.nome} +'.jpg'}" width="15%">
+				<img th:src="@{'/images/' + ${maglietta.nome} +'.jpg'}" width="25%">
 			</span>
 			<div><strong>Nome: </strong>
 				<span th:text="${maglietta.nome}"></span>

@@ -27,7 +27,7 @@ public class MagliettaController {
 	@GetMapping("/elencoMagliette")
 	public String getMagliette(Model model) {
 		model.addAttribute("maglietteList", this.magliettaService.findAll());
-		return "/maglietta/elencoMagliette.html";
+		return "/maglietta/catalogoMagliette.html";
 	}
 	
 	@GetMapping("/maglietta/{id}")

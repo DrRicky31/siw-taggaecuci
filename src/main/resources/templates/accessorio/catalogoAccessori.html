@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/css.css}" />
+	<link rel="stylesheet" th:href="@{/css/footer.css}" />
+	<link rel="stylesheet" th:href="@{/css/topnav.css}" />
+	<link rel="stylesheet" th:href="@{/css/catalogo.css}" />
+	<title>Catalogo</title>
+</head>
+
+<body>
+	<div th:replace="fragments/topnav.html :: topnav"></div>
+
+	<div class="catalogo">
+		<div class=item th:each="accessorio : ${accessoriList}">
+			<a th:href="@{'/accessorio' + '/' + ${accessorio.id}}"><img th:src="@{'/images/' + ${accessorio.nome} +'.jpg'}"></a>
+			<div>
+				<strong th:text="${accessorio.nome}"/>
+				<span>: </span>
+				<span th:text="${accessorio.descrizione}"/>
+			</div>
+			<div>
+				<strong th:text="${accessorio.prezzo} + ' €'"/>
+			</div>
+		</div>
+	</div>
+	<div th:replace="fragments/footer.html :: footer"></div>
+</body>
+
+</html>

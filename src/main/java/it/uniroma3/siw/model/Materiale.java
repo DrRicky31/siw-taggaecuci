@@ -19,8 +19,18 @@ public class Materiale {
 	@NotBlank
 	private String descrizione;
 	
+	public Materiale(@NotBlank String nome, @NotBlank String descrizione) {
+		super();
+		this.nome = nome;
+		this.descrizione = descrizione;
+	}
 	
 	
+	
+	public Materiale() {
+		super();
+	}
+
 	public Long getId() {
 		return id;
 	}

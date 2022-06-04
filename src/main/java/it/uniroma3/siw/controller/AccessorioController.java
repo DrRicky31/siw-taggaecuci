@@ -27,7 +27,7 @@ public class AccessorioController {
 	@GetMapping("/elencoAccessori")
 	public String getAccessori(Model model) {
 		model.addAttribute("accessoriList", this.accessorioService.findAll());
-		return "/accessorio/elencoAccessori.html";
+		return "/accessorio/catalogoAccessori.html";
 	}
 	
 	@GetMapping("/accessorio/{id}")

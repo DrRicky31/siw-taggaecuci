@@ -32,6 +32,18 @@ public class Accessorio {
 	@ManyToMany(mappedBy = "accessori")
 	private List<Collezione> collezioni;
 	
+		
+	public Accessorio(@NotBlank String nome, @NotBlank String descrizione, @Min(1) float prezzo) {
+		super();
+		this.nome = nome;
+		this.descrizione = descrizione;
+		this.prezzo = prezzo;
+	}
+
+	public Accessorio() {
+		super();
+	}
+
 	public Long getId() {
 		return id;
 	}

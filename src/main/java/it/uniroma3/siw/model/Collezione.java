@@ -28,7 +28,18 @@ public class Collezione {
 	@ManyToMany
 	private List<Accessorio> accessori;
 
+	public Collezione(@NotBlank String nome, @NotBlank String stagione) {
+		super();
+		this.nome = nome;
+		this.stagione = stagione;
+	}
+
 	
+	public Collezione() {
+		super();
+	}
+
+
 	public Long getId() {
 		return id;
 	}

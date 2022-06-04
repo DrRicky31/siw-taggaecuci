@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Inserimento materiale</title>
+</head>
+
+<body>
+	<div class="form">
+		<h2>Inserisci nuovo ingrediente</h2>
+		<form th:action="@{/materiale}" method="post" th:object="${materiale}">
+			<div>
+				<strong>Nome: </strong>
+				<input class="input" type=text th:field="*{nome}" />
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>
+			<div>
+				<strong>Descrizione: </strong>
+				<input class="input" type=text th:field="*{descrizione}" />
+				<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
+			</div>
+			<div><button type="submit">Conferma</button></div>
+			<footer><a th:href="@{/index}">Home</a></footer>
+		</form>
+	</div>
+</body>
+
+</html>

@@ -7,6 +7,27 @@
 <body>
 	<div id="footer" th:fragment="footer">
 		<ul><strong>Materiali</strong>
+			<li><a th:href="@{/materialeForm}">Inserisci materiale</a></li>
+			<li><a th:href="@{/elencoMateriali}"> Lista materiali</a></li>
+		</ul>
+		<ul><strong>Magliette</strong>
+			<li><a th:href="@{/magliettaForm}">Inserisci magliettta</a></li>
+		</ul>
+		<ul><strong>Accessori</strong>
+			<li><a th:href="@{/accessorioForm}">Inserisci accessorio</a></li>
+		</ul>
+		<ul><strong>Collezioni</strong>
+			<li><a th:href="@{/collezioneForm}">Inserisci collezione</a></li>
+		</ul>
+		<ul><strong>Contattaci</strong>
+		<li>Registrati</li>
+		</ul>
+		<img th:src="@{/images/logo.jpg}" width="8%">
+	</div>
+	
+	
+	<div id="footer" th:fragment="footer2">
+		<ul><strong>Materiali</strong>
 			<li>Lista materiali</li>
 			<li>Richieste speciali</li>
 		</ul>

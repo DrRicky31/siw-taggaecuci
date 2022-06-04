@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Inserimento maglietta</title>
+</head>
+
+<body>
+	<div class="form">
+		<h2>Inserisci una nuova maglietta</h2>
+		<form th:action="@{/maglietta}" method="post" th:object="${maglietta}">
+			<div>
+				<strong>Nome: </strong>
+				<input class="input" type=text th:field="*{nome}" />
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>
+			<div>
+				<strong>Descrizione: </strong>
+				<input class="input" type=text th:field="*{descrizione}" />
+			</div>
+			<div>
+				<strong>Colore: </strong>
+				<input class="input" type=text th:field="*{colore}" />
+				<span th:if="${#fields.hasErrors('colore')}" th:errors="*{colore}"></span>
+			</div>
+			<p>
+				<label><strong>Materiali: </strong>
+					<input type="checkbox" name="materiali" th:each="mat:${materiali}" th:text="${mat.nome}"
+						th:value="${mat.id}" th:field="*{materiali}" />
+				</label>
+			</p>
+			<div><button type="submit">Conferma</button></div>
+			<footer><a th:href="@{/index}">Home</a></footer>
+		</form>
+	</div>
+</body>
+
+</html>

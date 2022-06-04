@@ -39,7 +39,7 @@ body {
 	font-family: cursive;
 }
 
-.elenco li {
+.elenco tr {
 	font-size: 120%;
 }
 
@@ -50,4 +50,8 @@ body {
 .elenco a:link { 
 	text-decoration: none; 
 	color: #383838;
+}
+
+#dettagli {
+	font-size: 120%;
 }

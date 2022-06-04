@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Inserimento collezione</title>
+</head>
+
+<body>
+	<div class="form">
+		<h2>Inserisci una nuova collezione</h2>
+		<form th:action="@{/collezione}" method="post" th:object="${collezione}">
+			<div>
+				<strong>Nome: </strong>
+				<input class="input" type=text th:field="*{nome}" />
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>
+			<div>
+				<strong>Stagione: </strong>
+				<input class="input" type=text th:field="*{stagione}" />
+				<span th:if="${#fields.hasErrors('stagione')}" th:errors="*{stagione}"></span>
+			</div>
+			<p>
+				<label><strong>Accessori: </strong>
+					<input type="checkbox" name="accessori" th:each="acc:${accessori}" th:text="${acc.nome}"
+						th:value="${acc.id}" th:field="*{accessori}" />
+				</label>
+			</p>
+			<p>
+				<label><strong>Magliette: </strong>
+					<input type="checkbox" name="magliette" th:each="mag:${magliette}" th:text="${mag.nome}"
+						th:value="${mag.id}" th:field="*{magliette}" />
+				</label>
+			</p>
+			<div><button type="submit">Conferma</button></div>
+			<footer><a th:href="@{/index}">Home</a></footer>
+		</form>
+	</div>
+</body>
+
+</html>

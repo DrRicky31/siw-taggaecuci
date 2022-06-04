@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/css.css}" />
+	<link rel="stylesheet" th:href="@{/css/footer.css}" />
+	<link rel="stylesheet" th:href="@{/css/topnav.css}" />
+	<title>Dettaglio materiale</title>
+</head>
+
+<body>
+	<div th:replace="fragments/topnav.html :: topnav"></div>
+
+	<div class="elenco">
+		<h1>Dettagli materiale:</h1>
+
+		<div id="dettagli">
+			<div><strong>Nome: </strong>
+				<span th:text="${materiale.nome}"></span>
+			</div>
+			<div><strong>Descrizione: </strong>
+				<span th:text="${materiale.descrizione}"></span>
+			</div>
+		</div>
+	</div>
+	
+	<div th:replace="fragments/footer.html :: footer"></div>
+</body>
+
+</html>

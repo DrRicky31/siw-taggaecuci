@@ -12,6 +12,7 @@ import it.uniroma3.siw.model.Collezione;
 import it.uniroma3.siw.model.Maglietta;
 import it.uniroma3.siw.model.Materiale;
 import it.uniroma3.siw.service.AccessorioService;
+import it.uniroma3.siw.service.CollezioneService;
 import it.uniroma3.siw.service.MagliettaService;
 import it.uniroma3.siw.service.MaterialeService;
 
@@ -27,6 +28,9 @@ public class StartupController {
 	@Autowired
 	private AccessorioService accessorioService;
 	
+	@Autowired
+	private CollezioneService collezioneService;
+	
 	
 	@GetMapping("/startup")
 	public String inizializza() {
@@ -36,15 +40,15 @@ public class StartupController {
 		matList.add(mat);
 		materialeService.save(mat);
 		
-		Maglietta mag1=new Maglietta("bulldog", "Maglietta con bulldog ricamato sopra", "Nera, bianca", (float) 17.50);
+		Maglietta mag1=new Maglietta("bulldog", "Maglietta con bulldog ricamato sopra, solo contorno", "Nero, bianco", (float) 17.50);
 		mag1.setCollezioni(new ArrayList<Collezione>());
 		mag1.setMateriali(matList);
 		
-		Maglietta mag2=new Maglietta("girasole", "Maglietta con girasole pieno ricamato", "Bianca", (float) 32.99);
+		Maglietta mag2=new Maglietta("girasole", "Maglietta con girasole stilizzato pieno ricamato", "Bianco", (float) 32.99);
 		mag2.setCollezioni(new ArrayList<Collezione>());
 		mag2.setMateriali(matList);
 		
-		Maglietta mag3=new Maglietta("pipa", "Maglietta con disegno stilizzato dell'opera di Magritte", "Nera", (float) 29.99);
+		Maglietta mag3=new Maglietta("pipa", "Maglietta con disegno stilizzato dell'opera di Magritte", "Bianco", (float) 29.99);
 		mag3.setCollezioni(new ArrayList<Collezione>());
 		mag3.setMateriali(matList);
 		
@@ -72,6 +76,19 @@ public class StartupController {
 		accessorioService.save(acc1);
 		accessorioService.save(acc2);
 		accessorioService.save(acc3);
+		
+		Collezione coll = new Collezione("RiCamo", "Estate 2022");
+		List<Maglietta> mags = new ArrayList<>();
+		mags.add(mag1);
+		mags.add(mag2);
+		mags.add(mag3);
+		List<Accessorio> accs = new ArrayList<>();
+		accs.add(acc2);
+		accs.add(acc3);
+		coll.setAccessori(accs);
+		coll.setMagliette(mags);
+		
+		collezioneService.save(coll);		
 			
 		return "index.html";
 	}

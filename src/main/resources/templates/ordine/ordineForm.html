@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Nuovo ordine</title>
+</head>
+
+<body>
+	<div class="form">
+		<h2>Effettua un nuovo ordine</h2>
+		<form th:action="@{/ordine}" method="post" th:object="${ordine}">
+			<div>
+				<strong>Email: </strong>
+				<input class="input" type=text th:field="*{email}" />
+				<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+			</div>
+			<div>
+				<strong>Nome e Cognome: </strong>
+				<input class="input" type=text th:field="*{nome}" />
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>
+			<p>
+				<label><strong>Accessori: </strong>
+					<input type="checkbox" name="accessori" th:each="acc:${accessori}" th:text="${acc.nome}"
+						th:value="${acc.id}" th:field="*{accessori}" />
+				</label>
+			</p>
+			<p>
+				<label><strong>Magliette: </strong>
+					<input type="checkbox" name="magliette" th:each="mag:${magliette}" th:text="${mag.nome}"
+						th:value="${mag.id}" th:field="*{magliette}" />
+				</label>
+			</p>
+			<div><button type="submit">Conferma</button></div>
+			<footer><a th:href="@{/index}">Home</a></footer>
+		</form>
+	</div>
+</body>
+
+</html>

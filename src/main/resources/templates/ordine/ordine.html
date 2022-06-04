@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/css.css}" />
+	<link rel="stylesheet" th:href="@{/css/footer.css}" />
+	<link rel="stylesheet" th:href="@{/css/topnav.css}" />
+	<title>Dettagli ordine</title>
+</head>
+
+<body>
+	<div th:replace="fragments/topnav.html :: topnav"></div>
+
+	<div class="elenco">
+		<h1>Dettagli ordine:</h1>
+
+		<div id="dettagli">
+			<div><strong>email: </strong>
+				<span th:text="${ordine.email}"></span>
+			</div>
+			<div><strong>nome: </strong>
+				<span th:text="${ordine.nome}"></span>
+			</div>
+			<div><strong>Magliette: </strong>
+					<span th:each="mag : ${ordine.magliette}">
+						<a th:href="@{'/maglietta' + '/' + ${mag.id}}">
+							<span th:text="${mag.nome}" />,
+						</a>
+					</span>
+			</div>
+			<div><strong>Accessori: </strong>
+				<span>
+					<span th:each="acc : ${ordine.accessori}">
+						<a th:href="@{'/accessorio' + '/' + ${acc.id}}">
+							<span th:text="${acc.nome}" />,
+						</a>
+					</span>
+				</span>
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="fragments/footer.html :: footer"></div>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet"  th:href="@{/css/css.css}"/>
+	<link rel="stylesheet"  th:href="@{/css/footer.css}"/>
+	<link rel="stylesheet"  th:href="@{/css/topnav.css}"/>
+	<title>elenco materiali</title>
+</head>
+
+<body>
+	<div th:replace="fragments/topnav.html :: topnav"></div>
+	
+	
+	<div class="elenco">
+		<h1>Elenco materiali usati:</h1>
+			
+		<table>
+			<colgroup>
+				<col style="width: 15%">
+				<col style="width: 25%">
+			</colgroup>
+			<thead>
+				<tr>
+					<td><strong>Nome</strong></td>
+					<td><strong>Descrizione</strong></td>
+				</tr>
+			</thead>	
+			</tbody>
+				<tr th:each="materiale : ${materialiList}">
+					<td th:text="${materiale.nome}"/>
+					<td th:text="${materiale.descrizione}"/>
+				</tr>
+			</tbody>
+		</table>
+	
+	</div>
+	<div th:replace="fragments/footer.html :: footer"></div>
+</body>
+
+</html>

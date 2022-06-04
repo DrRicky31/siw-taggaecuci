@@ -32,3 +32,22 @@ body {
 	padding-left: 3%;
 	padding-right: 3%;
 }
+
+.elenco {
+	margin-left: 1%;
+	margin-bottom: 5%;
+	font-family: cursive;
+}
+
+.elenco li {
+	font-size: 120%;
+}
+
+.elenco a:visited { 
+	color: #383838; 
+}
+
+.elenco a:link { 
+	text-decoration: none; 
+	color: #383838;
+}

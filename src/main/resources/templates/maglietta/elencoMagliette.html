@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet"  th:href="@{/css/css.css}"/>
+	<link rel="stylesheet"  th:href="@{/css/footer.css}"/>
+	<link rel="stylesheet"  th:href="@{/css/topnav.css}"/>
+	<title>elenco accessori</title>
+</head>
+
+<body>
+	<div th:replace="fragments/topnav.html :: topnav"></div>
+	
+	
+	<div class="elenco">
+		<h1>Elenco magliette in catalogo:</h1>
+			
+		<table>
+			<colgroup>
+				<col style="width: 10%">
+				<col style="width: 10%">
+				<col style="width: 25%">
+				<col style="width: 25%">
+				<col style="width: 15%">
+			</colgroup>
+			<thead>
+				<tr>
+					<td><strong>Nome</strong></td>
+					<td><strong>Colore</strong></td>
+					<td><strong>Descrizione</strong></td>
+					<td><strong>Collezioni</strong></td>
+					<td><strong>Materiali</strong></td>
+				</tr>
+			</thead>	
+			</tbody>
+				<tr th:each="maglietta : ${maglietteList}">
+					<td th:text="${maglietta.nome}"/>
+					<td th:text="${maglietta.colore}"/>
+					<td th:text="${maglietta.descrizione}"/>
+					<td>
+						<ta th:each="materiale : ${maglietta.materiali}">
+						<ta><a th:href="@{'/materiale' + '/' + ${materiale.id}}"><tb th:text="${materiale.nome}"/>, </a></ta>
+						</ta>
+					</td>
+					<td>
+						<ta th:each="collezione : ${maglietta.collezioni}">
+						<ta><a th:href="@{'/collezione' + '/' + ${collezione.id}}"><tb th:text="${collezione.nome}"/>, </a></ta>
+						</ta>
+					</td>		
+				</tr>
+			</tbody>
+		</table>
+	
+	</div>
+	<div th:replace="fragments/footer.html :: footer"></div>
+</body>
+
+</html>

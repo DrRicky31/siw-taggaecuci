@@ -52,7 +52,7 @@ public class StartupController {
 		mag3.setCollezioni(new ArrayList<Collezione>());
 		mag3.setMateriali(matList);
 		
-		Maglietta mag4=new Maglietta("Prova", "Maglietta di prova", "Rosso, Bianco, Nero", (float) 1.66);
+		Maglietta mag4=new Maglietta("lama", "Maglietta con disegno stilizzato Lama e scritta", "Bianco", (float) 32.99);
 		mag4.setCollezioni(new ArrayList<Collezione>());
 		mag4.setMateriali(matList);
 		

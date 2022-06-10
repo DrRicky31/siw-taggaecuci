@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import javax.sql.DataSource;
 
 import static it.uniroma3.siw.model.Credentials.ADMIN_ROLE;
-//import static it.uniroma3.siw.model.Credentials.CLIENT_ROLE;
+import static it.uniroma3.siw.model.Credentials.CLIENT_ROLE;
 
 @SuppressWarnings("deprecation")
 @Configuration
@@ -35,14 +35,14 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/", "/index", "/login", "/register", "/elencoAccessorio", "/accessorio/**", "/elencoOrdini", "/ordine", "/css/**", "/images/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/", "/index", "/login", "/register", "/elencoAccessorio", "/accessorio/**", "/elencoOrdini", "/ordine", "/ordineForm", "/css/**", "/images/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/startup", "/elencoCollezioni", "/collezione", "/elencoMagliette", "/maglietta/**", "/elencoMateriali", "/materiale/**" ).permitAll() 
                 .antMatchers(HttpMethod.POST, "/login", "/register").permitAll()
                 
                 //aggiungere autorizzazioni personali con CLIENT_ROLE
                 
-                .antMatchers(HttpMethod.GET, "").hasAnyAuthority(ADMIN_ROLE)
-                .antMatchers(HttpMethod.POST, "").hasAnyAuthority(ADMIN_ROLE)
+               // .antMatchers(HttpMethod.GET, "").hasAnyAuthority(ADMIN_ROLE)
+               // .antMatchers(HttpMethod.POST, "").hasAnyAuthority(ADMIN_ROLE)
                 .anyRequest().authenticated()
 
                 .and().formLogin()

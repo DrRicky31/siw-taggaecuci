@@ -43,18 +43,13 @@ public class AuthenticationController {
 		return "loginForm.html";
 	}
 	
-	@GetMapping("/logout") 
-	public String logout(Model model) {
-		return "index.html";
-	}
-	
 	 @GetMapping("/default")
 	    public String defaultAfterLogin(Model model) {
 	        		 
 	    	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	    	Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
 	    	if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
-	            return "admin/indexAdmin.html";
+	            return "index.html";
 	        }
 	        return "index.html";
 	    }
@@ -68,13 +63,8 @@ public class AuthenticationController {
         if(!userBindingResult.hasErrors() && ! credentialsBindingResult.hasErrors()) {
             credentials.setUser(user);
             credentialsService.saveCredentials(credentials);
-            return "registrationSuccessful";
+            return "registrationSuccessful.html";
         }
-        return "registerUser";
+        return "registerUser.html";
     }
-    
-    @GetMapping({"/", "index"})
-	public String index(Model model) {
-			return "index";
-	}
 }

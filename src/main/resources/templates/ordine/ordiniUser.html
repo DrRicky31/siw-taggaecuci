@@ -15,22 +15,26 @@
 
 	<div class="elenco">
 		<div>
+			<span>Utente corrente: </span>
+			<span th:text="${user.nome}"></span>
+			<span th:text="${user.cognome}"></span>
+			<span> - </span>
+			<span th:text="${user.email}"></span>
+		</div>
+		<div>
 			<a th:href="@{/logout}">Logout</a>
 		</div>
 		<h1>Elenco ordini effettuati:</h1>
-
 		<table>
 			<colgroup>
-				<col style="width: 5%">
-				<col style="width: 10%">
+				<col style="width: 8%">
 				<col style="width: 12%">
-				<col style="width: 20%">
-				<col style="width: 10%">
+				<col style="width: 15%">
+				<col style="width: 8%">
 			</colgroup>
 			<thead>
 				<tr>
 					<td><strong>Numero ordine</strong></td>
-					<td><strong>Email</strong></td>
 					<td><strong>Nome</strong></td>
 					<td><strong>Magliette</strong></td>
 					<td><strong>Accessori</strong></td>
@@ -39,7 +43,6 @@
 			</tbody>
 			<tr th:each="ordine : ${ordini}">
 				<td th:text="${ordine.id}" />
-				<td th:text="${ordine.email}" />
 				<td th:text="${ordine.nome}" />
 				<td>
 					<ta th:each="maglietta : ${ordine.magliette}">

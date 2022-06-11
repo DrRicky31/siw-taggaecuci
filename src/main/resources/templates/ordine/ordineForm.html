@@ -11,14 +11,8 @@
 		<h2>Effettua un nuovo ordine</h2>
 		<form th:action="@{/ordine}" method="post" th:object="${ordine}">
 			<div>
-				<strong>Email: </strong>
-				<input class="input" type=text th:field="*{email}" />
-				<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
-			</div>
-			<div>
 				<strong>Nome e Cognome: </strong>
-				<input class="input" type=text th:field="*{nome}" />
-				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+				<input class="input" type=text th:field="*{nome}" required/>
 			</div>
 			<p>
 				<label><strong>Accessori: </strong>

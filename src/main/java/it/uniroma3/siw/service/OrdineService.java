@@ -38,4 +38,8 @@ public class OrdineService {
 	public void deleteById(Long id) {
 		this.ordineRepository.deleteById(id);
 	}
+	
+	public List<Ordine> findByEmail(String email) {
+		return this.ordineRepository.findByEmail(email);
+	}
 }

@@ -28,6 +28,12 @@
 				<input class="input" type="text" placeholder="cognome" required th:field="${user.cognome}" /></td>
 				<span th:if="${#fields.hasErrors('user.cognome')}" th:errors="${user.cognome}" th:style="'color:red'">
 				</span>
+				<span>
+					<strong>Role: </strong>
+					<select th:field="*{credentials.role}">
+						<option th:each="rol : ${roles}" th:value="${rol}" th:text="${rol}" />
+					</select>
+				</span>
 
 				<div th:object="${user}">
 					<span th:if="${#fields.hasGlobalErrors()}">

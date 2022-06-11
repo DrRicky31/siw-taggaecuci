@@ -16,6 +16,9 @@
 		<h1>Dettagli ordine:</h1>
 
 		<div id="dettagli">
+			<div><strong>Numero ordine: </strong>
+				<span th:text="${ordine.id}"></span>
+			</div>
 			<div><strong>email: </strong>
 				<span th:text="${ordine.email}"></span>
 			</div>
@@ -23,11 +26,11 @@
 				<span th:text="${ordine.nome}"></span>
 			</div>
 			<div><strong>Magliette: </strong>
-					<span th:each="mag : ${ordine.magliette}">
-						<a th:href="@{'/maglietta' + '/' + ${mag.id}}">
-							<span th:text="${mag.nome}" />,
-						</a>
-					</span>
+				<span th:each="mag : ${ordine.magliette}">
+					<a th:href="@{'/maglietta' + '/' + ${mag.id}}">
+						<span th:text="${mag.nome}" />,
+					</a>
+				</span>
 			</div>
 			<div><strong>Accessori: </strong>
 				<span>

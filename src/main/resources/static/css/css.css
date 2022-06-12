@@ -17,6 +17,11 @@ body {
   }
 }
 
+.userdata{
+	font-size: 115%;
+}
+
+
 .slider {
 	display: flex;
 	justify-content: center;

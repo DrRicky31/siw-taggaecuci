@@ -14,14 +14,14 @@
 
 
 	<div class="elenco">
-		<div>
+		<div class="userdata">
 			<span>Amministratore corrente: </span>
 			<span th:text="${user.nome}"></span>
 			<span th:text="${user.cognome}"></span>
 			<span> - </span>
 			<span th:text="${user.email}"></span>
 		</div>
-		<div>
+		<div class="userdata">
 			<a th:href="@{/logout}">Logout</a>
 		</div>
 		<h1>Elenco ordini effettuati:</h1>

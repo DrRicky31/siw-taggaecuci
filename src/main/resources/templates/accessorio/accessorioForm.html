@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<head>
-	<meta charset="UTF-8" />
-	<title>Inserimento accessorio</title>
+<head> 
+	<title>Login</title>
+	<link rel="stylesheet"  th:href="@{/css/login.css}"/>
 </head>
-
 <body>
-	<div class="form">
-		<h2>Inserisci un nuovo accessorio</h2>
-		<form th:action="@{/accessorio}" method="post" th:object="${accessorio}">
+	<div class="login-page">
+		<div id="logo"><img th:src="@{/images/logo.jpg}" width="50%"></div>
+  		<div class="form">
+    		<form th:action="@{/accessorio}" method="post" th:object="${accessorio}">
+    		<h2>Inserisci nuovo accessorio</h2>
 			<div>
 				<strong>Nome: </strong>
 				<input class="input" type=text th:field="*{nome}" />
@@ -34,7 +34,8 @@
 			<div><button type="submit">Conferma</button></div>
 			<footer><a th:href="@{/index}">Home</a></footer>
 		</form>
+		</div>
 	</div>
 </body>
-
 </html>
+

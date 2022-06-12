@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<head>
-	<meta charset="UTF-8" />
-	<title>Nuovo ordine</title>
+<head> 
+	<title>Login</title>
+	<link rel="stylesheet"  th:href="@{/css/login.css}"/>
 </head>
-
 <body>
-	<div class="form">
-		<h2>Effettua un nuovo ordine</h2>
+	<div class="login-page">
+		<div id="logo"><img th:src="@{/images/logo.jpg}" width="50%"></div>
+  		<div class="form">
+    		<h2>Effettua un nuovo ordine</h2>
 		<form th:action="@{/ordine}" method="post" th:object="${ordine}">
 			<div>
 				<strong>Nome e Cognome: </strong>
@@ -29,7 +29,8 @@
 			<div><button type="submit">Conferma</button></div>
 			<footer><a th:href="@{/index}">Home</a></footer>
 		</form>
+		</div>
 	</div>
 </body>
-
 </html>
+

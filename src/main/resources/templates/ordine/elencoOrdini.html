@@ -15,6 +15,13 @@
 
 	<div class="elenco">
 		<div>
+			<span>Amministratore corrente: </span>
+			<span th:text="${user.nome}"></span>
+			<span th:text="${user.cognome}"></span>
+			<span> - </span>
+			<span th:text="${user.email}"></span>
+		</div>
+		<div>
 			<a th:href="@{/logout}">Logout</a>
 		</div>
 		<h1>Elenco ordini effettuati:</h1>

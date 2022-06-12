@@ -18,8 +18,6 @@
 			<a th:href="@{'/maglietta' + '/' + ${maglietta.id}}"><img th:src="@{'/images/' + ${maglietta.nome} +'.jpg'}"></a>
 			<div>
 				<strong th:text="${maglietta.nome}"/>
-				<span>: </span>
-				<span th:text="${maglietta.descrizione}"/>
 			</div>
 			<div>
 				<strong th:text="${maglietta.prezzo} + ' €'"/>

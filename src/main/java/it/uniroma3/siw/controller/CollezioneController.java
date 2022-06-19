@@ -20,26 +20,26 @@ import it.uniroma3.siw.service.MagliettaService;
 public class CollezioneController {
 
 	@Autowired
-	private CollezioneService collezioneService;	
-	
+	private CollezioneService collezioneService;
+
 	@Autowired
 	private MagliettaService magliettaService;
-	
+
 	@Autowired
 	private AccessorioService accessorioService;
-	
+
 	@GetMapping("/elencoCollezioni")
 	public String getCollezioni(Model model) {
 		model.addAttribute("collezioniList", this.collezioneService.findAll());
 		return "/collezione/elencoCollezioni.html";
 	}
-	
+
 	@GetMapping("/elencoCollezioniAdmin")
 	public String getCollezioniAdmin(Model model) {
 		model.addAttribute("collezioniList", this.collezioneService.findAll());
 		return "/collezione/elencoCollezioniAdmin.html";
 	}
-	
+
 	@GetMapping("/index")
 	public String gotoIndex() {
 		return "/index.html";
@@ -51,26 +51,35 @@ public class CollezioneController {
 		model.addAttribute("collezione", collezione);
 		model.addAttribute("magliette", magliettaService.findAll());
 		model.addAttribute("accessori", accessorioService.findAll());
-		
+
 		return "/collezione/collezioneForm.html";
 	}
-	
+
 	@PostMapping("/collezione")
-	public String addCollezione(@Valid @ModelAttribute("collezione") Collezione collezione, BindingResult bindingResult, Model model) {
-		if(!bindingResult.hasErrors()) {
+	public String addCollezione(@Valid @ModelAttribute("collezione") Collezione collezione, BindingResult bindingResult,
+			Model model) {
+		if (!bindingResult.hasErrors()) {
 			collezioneService.save(collezione);
 			model.addAttribute("collezione", collezione);
 			return "/collezione/collezione.html";
-		}
-		else
+		} else
 			return "/collezione/collezioneForm.html";
 	}
-	
+
+	@GetMapping("/collezione/{id}")
+	public String CollezioneDet(@PathVariable("id") Long id, Model model) {
+
+		Collezione collezione= collezioneService.findById(id);
+		model.addAttribute("collezione", collezione);
+		return "/collezione/collezione.html";
+
+	}
+
 	@GetMapping("/deleteCollezione/{id}")
-	public String deleteCollezione(@PathVariable("id") Long id, Model model) {		
+	public String deleteCollezione(@PathVariable("id") Long id, Model model) {
 		collezioneService.deleteById(id);
 		model.addAttribute("collezioni", collezioneService.findAll());
-		
+
 		return "/collezione/elencoCollezioniAdmin.html";
 	}
 }

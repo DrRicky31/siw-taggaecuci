@@ -10,6 +10,7 @@
  	2. Materiale
  	3. Collezione
  	4. Accessorio
+  5. Ordine
  	
  Associazioni:
  	Per ogni maglietta è di interesse un nome, descrizione,  i colori disponibili e la lista dei Materiali di cui è composta.

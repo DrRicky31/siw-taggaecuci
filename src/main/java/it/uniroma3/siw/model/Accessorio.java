@@ -2,6 +2,7 @@ package it.uniroma3.siw.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,7 +30,7 @@ public class Accessorio {
 	@ManyToMany
 	private List<Materiale> materiali;
 
-	@ManyToMany(mappedBy = "accessori")
+	@ManyToMany(mappedBy = "accessori", cascade={CascadeType.REMOVE})
 	private List<Collezione> collezioni;
 	
 		

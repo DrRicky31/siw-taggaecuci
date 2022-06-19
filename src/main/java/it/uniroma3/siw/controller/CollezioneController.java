@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.siw.model.Collezione;
@@ -31,6 +32,12 @@ public class CollezioneController {
 	public String getCollezioni(Model model) {
 		model.addAttribute("collezioniList", this.collezioneService.findAll());
 		return "/collezione/elencoCollezioni.html";
+	}
+	
+	@GetMapping("/elencoCollezioniAdmin")
+	public String getCollezioniAdmin(Model model) {
+		model.addAttribute("collezioniList", this.collezioneService.findAll());
+		return "/collezione/elencoCollezioniAdmin.html";
 	}
 	
 	@GetMapping("/index")
@@ -57,5 +64,13 @@ public class CollezioneController {
 		}
 		else
 			return "/collezione/collezioneForm.html";
+	}
+	
+	@GetMapping("/deleteCollezione/{id}")
+	public String deleteCollezione(@PathVariable("id") Long id, Model model) {		
+		collezioneService.deleteById(id);
+		model.addAttribute("collezioni", collezioneService.findAll());
+		
+		return "/collezione/elencoCollezioniAdmin.html";
 	}
 }

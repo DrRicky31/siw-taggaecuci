@@ -2,6 +2,7 @@ package it.uniroma3.siw.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,7 +32,7 @@ public class Maglietta {
 	@ManyToMany
 	private List<Materiale> materiali;
 
-	@ManyToMany(mappedBy = "magliette")
+	@ManyToMany(mappedBy = "magliette",cascade={CascadeType.REMOVE})
 	private List<Collezione> collezioni;
 		
 	public Maglietta(@NotBlank String nome, String descrizione, @NotBlank String colore, @Min(1) float prezzo) {

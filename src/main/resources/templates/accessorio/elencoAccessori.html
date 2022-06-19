@@ -23,6 +23,7 @@
 				<col style="width: 10%">
 				<col style="width: 10%">
 				<col style="width: 10%">
+				col style="width: 10%">
 				<col style="width: 5%">
 			</colgroup>
 			<thead>
@@ -33,6 +34,7 @@
 					<td><strong>Prezzo</strong></td>
 					<td><strong>Materiali</strong></td>
 					<td><strong>Collezioni</strong></td>
+					<td><strong>Cancella accessorio</strong></td>
 				</tr>
 			</thead>	
 			</tbody>
@@ -50,13 +52,14 @@
 						<ta th:each="collezione : ${accessorio.collezioni}">
 						<ta><a th:href="@{'/collezione' + '/' + ${collezione.id}}"><tb th:text="${collezione.nome}"/>, </a></ta>
 						</ta>
-					</td>		
+					</td>	
+					<td><a th:href="@{'/deleteAccessorio' + '/' + ${accessorio.id}}">Cancella</a></td>	
 				</tr>
 			</tbody>
 		</table>
 	
 	</div>
-	<div th:replace="fragments/footer.html :: footer2"></div>
+	<div th:replace="fragments/footer.html :: footer"></div>
 </body>
 
 </html>

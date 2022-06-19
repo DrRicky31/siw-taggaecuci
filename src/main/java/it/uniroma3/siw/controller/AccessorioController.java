@@ -30,6 +30,12 @@ public class AccessorioController {
 		return "/accessorio/catalogoAccessori.html";
 	}
 	
+	@GetMapping("/elencoAccessoriAdmin")
+	public String getAccessoriAdmin(Model model) {
+		model.addAttribute("accessoriList", this.accessorioService.findAll());
+		return "/accessorio/elencoAccessori.html";
+	}
+	
 	@GetMapping("/accessorio/{id}")
 	public String getAccessorio(@PathVariable Long id, Model model) {
 		Accessorio accessorio = this.accessorioService.findById(id);
@@ -57,5 +63,14 @@ public class AccessorioController {
 		else
 			model.addAttribute("materiali", materialeService.findAll());
 			return "/accessorio/accessorioForm.html";
+	}
+	
+	@GetMapping("/deleteAccessorio/{id}")
+	public String deleteAccessorio(@PathVariable("id") Long id, Model model) {
+
+		accessorioService.deleteById(id);
+		model.addAttribute("accessoriList", accessorioService.findAll());
+
+		return "/accessorio/elencoAccessori.html";
 	}
 }

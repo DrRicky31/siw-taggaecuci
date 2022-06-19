@@ -19,44 +19,59 @@ import it.uniroma3.siw.service.MaterialeService;
 public class MagliettaController {
 
 	@Autowired
-	private MagliettaService magliettaService;	
-	
+	private MagliettaService magliettaService;
+
 	@Autowired
 	private MaterialeService materialeService;
-	
+
 	@GetMapping("/elencoMagliette")
 	public String getMagliette(Model model) {
 		model.addAttribute("maglietteList", this.magliettaService.findAll());
 		return "/maglietta/catalogoMagliette.html";
 	}
 	
+	@GetMapping("/elencoMaglietteAdmin")
+	public String getMaglietteAdmin(Model model) {
+		model.addAttribute("maglietteList", this.magliettaService.findAll());
+		return "/maglietta/elencoMagliette.html";
+	}
+
 	@GetMapping("/maglietta/{id}")
 	public String getMaglietta(@PathVariable Long id, Model model) {
-		
+
 		Maglietta maglietta = this.magliettaService.findById(id);
 		model.addAttribute("maglietta", maglietta);
-		
+
 		return "/maglietta/maglietta.html";
 	}
-	
+
 	@GetMapping("/magliettaForm")
 	public String showMagliettaForm(Model model) {
 		Maglietta maglietta = new Maglietta();
 		model.addAttribute("maglietta", maglietta);
 		model.addAttribute("materiali", materialeService.findAll());
-		
+
 		return "/maglietta/magliettaForm.html";
 	}
-	
+
 	@PostMapping("/maglietta")
-	public String addMaglietta(@Valid @ModelAttribute("maglietta") Maglietta maglietta, BindingResult bindingResult, Model model) {
-		if(!bindingResult.hasErrors()) {
+	public String addMaglietta(@Valid @ModelAttribute("maglietta") Maglietta maglietta, BindingResult bindingResult,
+			Model model) {
+		if (!bindingResult.hasErrors()) {
 			magliettaService.save(maglietta);
 			model.addAttribute("maglietta", maglietta);
 			return "/maglietta/maglietta.html";
-		}
-		else
+		} else
 			model.addAttribute("materiali", materialeService.findAll());
-			return "/maglietta/magliettaForm.html";
+		return "/maglietta/magliettaForm.html";
+	}
+
+	@GetMapping("/deleteMaglietta/{id}")
+	public String deleteMaglietta(@PathVariable("id") Long id, Model model) {
+
+		magliettaService.deleteById(id);
+		model.addAttribute("maglietteList", magliettaService.findAll());
+
+		return "/maglietta/elencoMagliette.html";
 	}
 }

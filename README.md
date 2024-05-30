@@ -1,23 +1,17 @@
-# siw-taggaecuci
- siw exam - tagga & cuci 
+# Web-based information systems - Tagga&Cuci
 
- Server Postgres:
- 	db: taggaecuci (localhost)
- 	port: 8080
+## Postgres server
+db: taggaecuci (localhost) port: 8080
 
- classi del dominio:
- 	1. Maglietta
- 	2. Materiale
- 	3. Collezione
- 	4. Accessorio
-  5. Ordine
- 	
- Associazioni:
- 	Per ogni maglietta è di interesse un nome, descrizione,  i colori disponibili e la lista dei Materiali di cui è composta.
- 	Per ogni materiale è di interesse il nome e la descrizione (con eventuali percentuali
- 	Ogni collezione è composta da un nome, una stagione e una lista di magliette e accessori
- 	Ogni accessorio ha un nome, una tipologia, descrizione e lista dei materiali
- 	
- Form:
- 	Contattaci: Form che permette al cliente di richiedere un ordine al sistema. gli amministratori potreanno visualizzare
- 				tutte le richieste di tutti i clienti. Verranno mostrati i dati dell'utente con i prodotti richiesti
+## Domain classes
+1. T-Shirt
+2. Material
+3. Collection
+4. Accessory
+5. Order
+
+## Associations
+For each T-shirt is of interest a name, description, the colors available, and the list of Materials of which it is composed. For each material is of interest a name and description (with any percentages Each collection has a name, a season, and a list of T-shirts and accessories Each accessory has a name, type, description, and list of materials
+
+## Form
+Contact Us: Form that allows the customer to request an order from the system. administrators will be able to view all requests from all customers. The user's information will be shown with the products requested
